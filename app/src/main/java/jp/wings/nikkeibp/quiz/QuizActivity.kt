@@ -26,30 +26,30 @@ class QuizActivity : AppCompatActivity() {
                 var binding: QuerryaBinding = QuerryaBinding.inflate(layoutInflater)
                 setContentView(binding.root)
             }
-
-        } else {
+        }
+        else {
             //val str = "a"
             binding.imageView.setImageResource(R.drawable.omikuji2)
         }
-    }
-/*
+
+
         // おみくじ棚の配列
         val omikujiShelf = Array<OmikujiParts>(20)
-        { OmikujiParts(R.drawable.result2, R.string.contents1) }
+            { OmikujiParts(R.drawable.result2, R.string.contents1) }
 
         // おみくじ番号保管用
         var omikujiNumber = -1
 
+
         val omikujiBox = OmikujiBox()
 
-*/
-/*
-        lateinit var binding: OmikujiBinding
-        override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
-            binding = OmikujiBinding.inflate(layoutInflater)
-            setContentView(binding.root)
+        //lateinit var binding: OmikujiBinding
+        //override fun onCreate(savedInstanceState: Bundle?) {
+        //    super.onCreate(savedInstanceState)
+        //    binding = OmikujiBinding.inflate(layoutInflater)
+        //    setContentView(binding.root)
 
+/*
             manager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
 
             val pref = PreferenceManager.getDefaultSharedPreferences(this)
@@ -57,21 +57,23 @@ class QuizActivity : AppCompatActivity() {
 
             binding.button.visibility = if (value) View.VISIBLE else View.INVISIBLE
 */
-/*
-            omikujiBox.omikujiView = binding.imageView
-            omikujiBox.omikujiButton = binding.button
 
-            //　おみくじ棚の準備
-            omikujiShelf[0].drawID = R.drawable.result1
-            omikujiShelf[0].fortuneID = R.string.contents2
 
-            omikujiShelf[1].drawID = R.drawable.result3
-            omikujiShelf[1].fortuneID = R.string.contents9
+        omikujiBox.omikujiView = binding.imageView
+        omikujiBox.omikujiButton = binding.button
 
-            omikujiShelf[2].fortuneID = R.string.contents3
-            omikujiShelf[3].fortuneID = R.string.contents4
-            omikujiShelf[4].fortuneID = R.string.contents5
-            omikujiShelf[5].fortuneID = R.string.contents6
+        //　おみくじ棚の準備
+        omikujiShelf[0].drawID = R.drawable.result1
+        omikujiShelf[0].fortuneID = R.string.contents2
+
+        omikujiShelf[1].drawID = R.drawable.result3
+        omikujiShelf[1].fortuneID = R.string.contents9
+
+        omikujiShelf[2].fortuneID = R.string.contents3
+        omikujiShelf[3].fortuneID = R.string.contents4
+        omikujiShelf[4].fortuneID = R.string.contents5
+        omikujiShelf[5].fortuneID = R.string.contents6
+
 
         fun drawResult() {
             // おみくじ番号を取得する
@@ -82,6 +84,7 @@ class QuizActivity : AppCompatActivity() {
             // おみくじ棚の配列から、omikujiPartsを取得する
             val op = omikujiShelf[omikujiNumber]
 
+
             val fortuneBinding = FortuneBinding.inflate(layoutInflater)
             setContentView(fortuneBinding.root)
 
@@ -89,10 +92,11 @@ class QuizActivity : AppCompatActivity() {
             fortuneBinding.imageView2.setImageResource(op.drawID)
             fortuneBinding.textView.setText(op.fortuneID)
         }
+
     }
 
     // val omikujiBox = OmikujiBox()
-*/
+
 
 
     fun onButtonClick(v: View) {
