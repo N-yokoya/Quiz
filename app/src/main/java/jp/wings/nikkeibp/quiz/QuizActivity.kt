@@ -10,8 +10,16 @@ import jp.wings.nikkeibp.omikuji.OmikujiBox
 import jp.wings.nikkeibp.quiz.databinding.*
 import java.util.Random
 
-
 class QuizActivity : AppCompatActivity() {
+
+    // おみくじ棚の配列
+    val omikujiShelf = Array<OmikujiParts>(20)
+    { OmikujiParts(R.drawable.result2, R.string.contents1) }
+
+    // おみくじ番号保管用
+    var omikujiNumber = -1
+
+    val omikujiBox = OmikujiBox()
 
     lateinit var binding: QuizBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +40,7 @@ class QuizActivity : AppCompatActivity() {
             binding.imageView.setImageResource(R.drawable.omikuji2)
         }
 
-
+/*
         // おみくじ棚の配列
         val omikujiShelf = Array<OmikujiParts>(20)
             { OmikujiParts(R.drawable.result2, R.string.contents1) }
@@ -40,9 +48,8 @@ class QuizActivity : AppCompatActivity() {
         // おみくじ番号保管用
         var omikujiNumber = -1
 
-
         val omikujiBox = OmikujiBox()
-
+*/
         //lateinit var binding: OmikujiBinding
         //override fun onCreate(savedInstanceState: Bundle?) {
         //    super.onCreate(savedInstanceState)
@@ -74,30 +81,9 @@ class QuizActivity : AppCompatActivity() {
         omikujiShelf[4].fortuneID = R.string.contents5
         omikujiShelf[5].fortuneID = R.string.contents6
 
-
-        fun drawResult() {
-            // おみくじ番号を取得する
-            val rnd = Random()
-            val number = rnd.nextInt(3)
-            var omikujiNumber = number
-
-            // おみくじ棚の配列から、omikujiPartsを取得する
-            val op = omikujiShelf[omikujiNumber]
-
-
-            val fortuneBinding = FortuneBinding.inflate(layoutInflater)
-            setContentView(fortuneBinding.root)
-
-            // 画像とテキストを変更する
-            fortuneBinding.imageView2.setImageResource(op.drawID)
-            fortuneBinding.textView.setText(op.fortuneID)
-        }
-
     }
 
     // val omikujiBox = OmikujiBox()
-
-
 
     fun onButtonClick(v: View) {
         var binding: QuerryaBinding = QuerryaBinding.inflate(layoutInflater)
@@ -115,6 +101,22 @@ class QuizActivity : AppCompatActivity() {
 
     }
 
+    fun drawResult() {
+        // おみくじ番号を取得する
+        val rnd = Random()
+        val number = rnd.nextInt(20)
+        var omikujiNumber = number
 
+        // おみくじ棚の配列から、omikujiPartsを取得する
+        val op = omikujiShelf[omikujiNumber]
+
+
+        val fortuneBinding = FortuneBinding.inflate(layoutInflater)
+        setContentView(fortuneBinding.root)
+
+        // 画像とテキストを変更する
+        fortuneBinding.imageView2.setImageResource(op.drawID)
+        fortuneBinding.textView.setText(op.fortuneID)
+    }
 
 }
