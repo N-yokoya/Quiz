@@ -3,6 +3,7 @@ package jp.wings.nikkeibp.quiz
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MotionEvent
+import android.view.View
 import jp.wings.nikkeibp.quiz.databinding.*
 import java.util.Random
 
@@ -70,7 +71,7 @@ class QuizActivity : AppCompatActivity() {
         return false
     }
 
-    fun onButtonClick() {
+    fun onButtonClick(v: View) {
         val binding: AnsaBinding = AnsaBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
